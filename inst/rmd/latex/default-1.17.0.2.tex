@@ -142,12 +142,16 @@ $if(strikeout)$
 $endif$
 $if(indent)$
 $else$
+\ifx\KOMAClassName\undefined
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 }
+\else
+\KOMAoption{parskip}{yes}
+\fi
 $endif$
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
